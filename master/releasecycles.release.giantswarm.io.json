@@ -1,0 +1,28 @@
+{
+  "properties": {
+    "spec": {
+      "properties": {
+        "disabledDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "enabledDate": {
+          "format": "date",
+          "type": "string"
+        },
+        "phase": {
+          "enum": [
+            "upcoming",
+            "enabled",
+            "disabled",
+            "eol"
+          ]
+        }
+      },
+      "required": [
+        "phase"
+      ],
+      "type": "object"
+    }
+  }
+}

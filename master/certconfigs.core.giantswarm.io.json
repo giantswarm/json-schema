@@ -1,0 +1,92 @@
+{
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": "string"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "properties": {
+        "cert": {
+          "properties": {
+            "allowBareDomains": {
+              "type": "boolean"
+            },
+            "altNames": {
+              "items": {
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "clusterComponent": {
+              "type": "string"
+            },
+            "clusterID": {
+              "type": "string"
+            },
+            "commonName": {
+              "type": "string"
+            },
+            "disableRegeneration": {
+              "type": "boolean"
+            },
+            "ipSans": {
+              "items": {
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "organizations": {
+              "items": {
+                "type": "string"
+              },
+              "nullable": true,
+              "type": "array"
+            },
+            "ttl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "allowBareDomains",
+            "clusterComponent",
+            "clusterID",
+            "commonName",
+            "disableRegeneration",
+            "ttl"
+          ],
+          "type": "object"
+        },
+        "versionBundle": {
+          "properties": {
+            "version": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "version"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "cert",
+        "versionBundle"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "metadata",
+    "spec"
+  ],
+  "type": "object"
+}
