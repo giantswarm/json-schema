@@ -10,7 +10,5 @@ repository to validate the resources generated and stored in the repository.
 Connect to a Giant Swarm management cluster and run the following commands.
 
 ```bash
-rm -rf master && mkdir master
-
-kubectl get crd | grep "giantswarm\|flux" | cut -d " " -f1 | xargs -I '{}' sh -c "kubectl get crd '{}' -o jsonpath='{.spec.versions[0].schema.openAPIV3Schema}' | jq > './master/{}'.json"
+./sync-json-schemas.sh
 ```
